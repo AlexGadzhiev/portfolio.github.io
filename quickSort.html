@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Быстрая сортировка</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background-image: url(otherFon.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        #first {
+            color: #f8e041;
+            font-size: 300%;
+            font-family: "Arial Rounded MT Bold";
+            margin-top: 50px;
+        }
+        #turn{
+            font-size: 150%;
+        }
+        #para1{
+            color: #f8e041;
+            font-size: 150%;
+            font-family: "Arial Rounded MT Bold";
+            margin-top: 25px;
+            margin-left: 200px;
+        }
+        #para2{
+            color: #f8e041;
+            font-size: 150%;
+            font-family: "Arial Rounded MT Bold";
+            margin-top: 5px;
+            margin-left: 200px;
+        }
+        #para3{
+            color: #f8e041;
+            font-size: 150%;
+            font-family: "Arial Rounded MT Bold";
+            margin-top: 5px;
+            margin-left: 200px;
+        }
+        #turnToCode{
+            margin-top: 100px;
+            font-size: 150%;
+            margin-left: 200px;
+            font-family: "Arial Rounded MT Bold";
+            color: orange;
+        }
+        #submitText {
+            margin-left: 200px;
+            font-size: 150%;
+            margin-top: 50px;
+            color: #ff7330;
+        }
+
+        #inputfile {
+            margin-left: 200px;
+            margin-top: 5px;
+            color: #ff7330;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <p align="center" id="first">
+        Быстрая сортировка
+    </p>
+</header>
+<div>
+    <form action="sortAlgs.html">
+        <button class="btn btn-primary" id="turn">Назад</button>
+    </form>
+</div>
+<div>
+    <p id="para1">
+        Суть алгоритма заключается в разделении массива на два под-массива, средней линией считается элемент, который находится в самом центре массива.
+        И он будет так разделять массив на две половинки, пока не дойдет до единичных подмассивов, и в итоге выведет отсортированный вид массива.
+    </p>
+    <p id="para2">
+        Сложность алгоритма: O(size * log(size))
+    </p>
+    <p id="para3">
+        Плюс: относительно быстрое время сортировки по сравнению с другими алгоритмами
+    </p>
+</div>
+
+<div>
+    <a href="quickSortCode.html" id="turnToCode">
+        Ссылка на код
+    </a>
+</div>
+<p id="submitText">
+    Отправить файл
+</p>
+<input id="inputfile" name="inputFile" type="file">
+<script type="text/javascript">
+    document.getElementById('inputfile').addEventListener('change', function () {
+        var fr = new FileReader();
+        let arr = [];
+        fr.onload = function () {
+            arr = fr.result;
+            let n = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] >= '0' && arr[i] <= '9') {
+                    n++;
+                    while (i < arr.length && arr[i] >= '0' && arr[i] <= '9') {
+                        i++;
+                    }
+                }
+            }
+
+            function log2(n) {
+                let ans = 0;
+                let x = n;
+                while(x){
+                    x /= 2;
+                    ans++;
+                }
+                return ans;
+            }
+            alert((n * log2(n)) / 100000 + "ms");
+        };
+        fr.readAsText(this.files[0]);
+    })
+</script>
+</body>
+</html>

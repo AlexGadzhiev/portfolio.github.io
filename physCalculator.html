@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Физический калькулятор</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        #first {
+            color: #f8e041;
+            font-size: 300%;
+            font-family: "Arial Rounded MT Bold";
+            margin-top: 50px;
+        }
+        body{
+            background-image: url(otherFon.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        #turn{
+            font-size: 150%;
+        }
+        #calculator{
+            margin-left:550px;
+            margin-top:140px;
+        }
+        .title{
+            margin-bottom: 10px;
+            text-align:center;
+            width: 210px;
+            color:green;
+            border: solid black 2px;
+        }
+
+        input[type="button"]
+        {
+            background-color:green;
+            color: black;
+            border: solid black 2px;
+            width:100%
+        }
+
+        input[type="text"]
+        {
+            background-color:white;
+            border: solid black 2px;
+            width:100%
+        }
+    </style>
+    <script>
+        //function that display value
+        function dis(val)
+        {
+            document.getElementById("result").value+=val
+        }
+
+        //function that evaluates the digit and return result
+        function solve()
+        {
+            let x = document.getElementById("result").value
+            let y = eval(x)
+            document.getElementById("result").value = y
+        }
+
+        //function that clear the display
+        function clr()
+        {
+            document.getElementById("result").value = ""
+        }
+
+    </script>
+</head>
+<body>
+<header>
+    <p align="center" id="first">
+        Проект "Физический калькулятор"
+    </p>
+</header>
+<div>
+    <form action="myProjects.html">
+        <button class="btn btn-primary" id="turn">Проекты</button>
+    </form>
+</div>
+<p>
+<table border="1" id = "calculator">
+    <tr>
+        <td colspan="3"><input type="text" id="result"/></td>
+        <td><input type="button" value="c" onclick="clr()"/> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="1" onclick="dis('1')"/> </td>
+        <td><input type="button" value="2" onclick="dis('2')"/> </td>
+        <td><input type="button" value="3" onclick="dis('3')"/> </td>
+        <td><input type="button" value="/" onclick="dis('/')"/> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="dis('4')"/> </td>
+        <td><input type="button" value="5" onclick="dis('5')"/> </td>
+        <td><input type="button" value="6" onclick="dis('6')"/> </td>
+        <td><input type="button" value="-" onclick="dis('-')"/> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7" onclick="dis('7')"/> </td>
+        <td><input type="button" value="8" onclick="dis('8')"/> </td>
+        <td><input type="button" value="9" onclick="dis('9')"/> </td>
+        <td><input type="button" value="+" onclick="dis('+')"/> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="(" onclick="dis('(')"></td>
+        <td><input type="button" value=")" onclick="dis(')')"></td>
+        <td><input type="button" value="1/a" onclick="dis('1/')"></td>
+        <td><input type="button" value="*" onclick="dis('*')"/> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="л-м3" onclick="dis('/1000')"></td>
+        <td><input type="button" value="см3-м3" onclick="dis('/1000000')"></td>
+        <td><input type="button" value="км/ч-м/c" onclick="dis('/3.6')"></td>
+        <td><input type="button" value="г/см3-кг/м3" onclick="dis('/1000')"></td>
+
+    </tr>
+    <tr>
+        <td><input type="button" value="." onclick="dis('.')"/> </td>
+        <td><input type="button" value="0" onclick="dis('0')"/> </td>
+        <td><input type="button" value="=" onclick="solve()"/> </td>
+        <td><input type="button" value="pi" onclick="dis('3.14')"></td>
+    </tr>
+</table>
+</p>
+</body>
+</html>
